@@ -1,0 +1,558 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3
+    );
+
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+
+    text-align: center;
+
+    padding: 50px 30px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: white;
+    color: #ff4f81;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    margin-top: 30px;
+}
+
+#message h2 {
+    margin-bottom: 10px;
+}
+
+#hearts-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    top: -50px;
+    font-size: 25px;
+    animation: fallingHeart 5s linear forwards;
+}
+
+@keyframes fallingHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.memories {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+}
+
+.memories h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.memory-intro {
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.memory-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.memory-card {
+    background: rgba(255, 255, 255, 0.15);
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px);
+}
+
+.memory-card img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    display: block;
+}
+
+.memory-card h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.memory-card p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* Clickable Photos */
+.memory-card img {
+    cursor: pointer;
+}
+
+/* Image Zoom */
+.image-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-modal img {
+    max-width: 95%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.close-image {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Personal Letter */
+
+.letter {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.letter h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.letter-box {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 30px;
+    border-radius: 20px;
+    line-height: 1.8;
+}
+
+.letter-box p {
+    margin-bottom: 18px;
+}
+
+.signature {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.final-surprise {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 45px 25px;
+    text-align: center;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.final-surprise h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.love-btn {
+    margin-top: 25px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4f81;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.love-btn:hover {
+    transform: scale(1.08);
+}
+
+.love-message {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.love-message h3 {
+    margin-bottom: 12px;
+}
+
+.big-heart {
+    font-size: 80px;
+    animation: heartbeat 1.2s infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.15);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+.love-message h2 {
+    margin-top: 25px;
+    font-size: 28px;
+}
+
+/* Romantic Heart Burst */
+
+.burst-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    font-size: 25px;
+    animation: burstHeart 1.8s ease-out forwards;
+}
+
+@keyframes burstHeart {
+
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.5);
+        opacity: 0;
+    }
+
+}
+
+/* Final Ending */
+
+.ending-message {
+    margin-top: 40px;
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.12);
+    animation: endingAppear 1s ease;
+}
+
+.ending-heart {
+    font-size: 70px;
+    animation: heartbeat 1.2s infinite;
+}
+
+.ending-message h2 {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.ending-message p {
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.ending-message h3 {
+    margin-top: 25px;
+    font-size: 22px;
+}
+
+.made-with-love {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.replay-btn {
+    margin-top: 25px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background: #ff4f81;
+    color: white;
+    transition: 0.3s;
+}
+
+.replay-btn:hover {
+    transform: scale(1.08);
+}
+
+@keyframes endingAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+
+    .letter {
+        width: 88%;
+        padding: 30px 15px;
+    }
+
+    .letter h2 {
+        font-size: 26px;
+    }
+
+    .letter-box {
+        padding: 20px 15px;
+        font-size: 15px;
+    }
+
+    .final-surprise {
+        width: 88%;
+        padding: 35px 15px;
+    }
+
+    .final-surprise h2 {
+        font-size: 26px;
+    }
+
+    .love-message {
+        padding: 20px 15px;
+    }
+
+    .big-heart {
+        font-size: 65px;
+    }
+
+    .love-message h3 {
+        font-size: 22px;
+    }
+
+    .ending-message {
+        width: 88%;
+        padding: 30px 15px;
+        margin: 30px auto;
+    }
+
+    .ending-message h2 {
+        font-size: 25px;
+    }
+
+    .ending-message h3 {
+        font-size: 20px;
+    }
+
+    .ending-heart {
+        font-size: 60px;
+    }
+
+    .replay-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .memory-card img {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+.music-btn {
+    margin: 20px auto;
+    display: block;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4f81;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Floating Music Button */
+
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    margin: 0;
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #ff4f81;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Romantic Footer */
+
+.romantic-footer {
+    width: 100%;
+    margin-top: 50px;
+    padding: 30px 15px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.romantic-footer p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.romantic-footer .footer-small {
+    font-size: 13px;
+    opacity: 0.75;
+}
