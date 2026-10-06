@@ -4,205 +4,518 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>For My Wife ❤️</title>
+    <title>For My Kummi ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body> 
-    <div id="hearts-container"></div>
+<body>
 
+<!-- =========================
+     FALLING HEARTS
+========================= -->
+<div id="hearts-container"></div>
+
+
+<!-- =========================
+     PASSWORD SCREEN
+========================= -->
+<div id="passwordScreen" class="password-screen">
+
+    <div class="lock-heart">❤️</div>
+
+    <h1>For My Special One ❤️</h1>
+
+    <p>Something beautiful is waiting for you...</p>
+
+    <div class="password-box">
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter Password"
+        >
+
+        <button id="unlockBtn">
+            🔐 Open My Heart
+        </button>
+
+        <p id="passwordError"></p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN WEBSITE
+========================= -->
+<main id="mainContent" class="hidden">
+
+
+    <!-- =========================
+         LOVE HEART ANIMATION
+    ========================= -->
+    <section class="love-animation-section">
+
+        <h1>
+            Love Heart Animation ❤️
+        </h1>
+
+        <p class="love-animation-subtitle">
+            A little heart made from thousands of "I love you" ❤️
+        </p>
+
+        <div id="loveHeart">
+            <!-- JavaScript creates I love you here -->
+        </div>
+
+        <p class="heart-caption">
+            For My Kummi ❤️
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN INTRO
+    ========================= -->
     <div class="container">
 
-        <h1>For My Special One ❤️</h1>
+        <h1>
+            For My Kummi ❤️
+        </h1>
 
         <p class="subtitle">
-            I made something special just for you...
+
+            My beautiful Mehrun Nisha,
+            <br>
+
+            I made something special
+            just for you...
+
         </p>
 
-<button id="surpriseBtn">
-    Open Your Surprise 🎁
-</button>
-
-<button id="musicBtn" class="music-btn">
-    🎵 Play Music
-</button>
-
-<audio id="bgMusic" loop>
-    <source src="music/love-song.mp3" type="audio/mpeg">
-</audio>
-
-<div id="message" class="hidden">
-    <h2>You are very special to me ❤️</h2>
-    <p>
-        This little website is made with love,
-        just for you.
-    </p>
-</div>
-
-<section class="memories hidden" id="memories">
-    <h2>Our Memories ❤️</h2>
-
-    <p class="memory-intro">
-        Some beautiful moments that I will always remember.
-    </p>
-
-    <div class="memory-grid">
-
-        <div class="memory-card">
-            <img src="photo1.jpg" alt="Our Memory" onclick="openImage(this.src)">
-            <h3>Beautiful Moment ❤️</h3>
-            <p>A special memory that means a lot to me.</p>
-        </div>
-
-        <div class="memory-card">
-            <img src="photo2.jpg" alt="Our Memory" onclick="openImage(this.src)">
-            <h3>Special Day 💕</h3>
-            <p>One of those moments I will always remember.</p>
-        </div>
-
-        <div class="memory-card">
-            <img src="photo3.jpg" alt="Our Memory" onclick="openImage(this.src)">
-            <h3>Best Memory 🌸</h3>
-            <p>A beautiful moment captured forever.</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- Personal Letter -->
-<section class="letter hidden" id="letter">
-
-    <h2>A Little Message ❤️</h2>
-
-    <div class="letter-box">
-
-        <p>
-                You are one of the most special people in my life. ❤️
-    Every moment, every smile, and every little memory we share
-    is something I truly treasure.
-
-            
-        </p>
-
-        <p>
-            You are my first thought in the morning and my last prayer at night.
-
-Since you came into my life, everything feels more beautiful. Your smile is my peace, and even your silence feels like love to me.
-
-I don't know how long life is, but whatever life I have, I want to spend every moment with you. Walking with you holding your hand, fighting with you, and then making you smile again
-
-that's my whole world.
-
-You are not just my wife. You are my best friend, my pride, my soul, my everything.
-
-I love you, today, tomorrow, and forever.
-            
-        </p>
-
-        <p>
-            My Forever Person
-
-I didn't believe in destiny until I met you.
-
-Before you, I was just living. After you, I started feeling life.
-
-You are the kind of magic I never want to get over. In your eyes, I found my home. In your heart, I found my future.
-
-If someone asks me what love is, I won't give a definition. I will just say your name.
-
-You are my wife, my dream come true, and my greatest blessing.
-
-I love you more than words will ever be enough to say.
-        </p>
-
-        <p class="signature">
-            With lots of love ❤️
-        </p>
+        <button id="surpriseBtn">
+            Open Your Surprise 🎁
+        </button>
 
     </div>
 
-</section>
 
-<!-- Final Surprise -->
-<section class="final-surprise hidden" id="finalSurprise">
-
-    <h2>One More Surprise ❤️</h2>
-
-    <p>
-        I have one more little thing to tell you...
-    </p>
-
-    <button id="loveBtn" class="love-btn">
-        Click Here ❤️
+    <!-- =========================
+         MUSIC
+    ========================= -->
+    <button id="musicBtn" class="music-btn">
+        🎵 Play Music
     </button>
 
-   <div id="loveMessage" class="love-message hidden">
+    <audio id="bgMusic" loop>
+        <source
+            src="music/love-song.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
 
-    <div class="big-heart">❤️</div>
 
-    <h3>You Are My Favorite Person ❤️</h3>
+    <!-- =========================
+         MESSAGE
+    ========================= -->
+    <section
+        id="message"
+        class="hidden section-card"
+    >
 
-    <p>
-        No matter where life takes us, I hope we always
-        keep making beautiful memories together.
-    </p>
+        <div class="section-heart">
+            ❤️
+        </div>
 
-    <p>
-        Thank you for being a beautiful part of my life.
-        Every moment with you is something I will always cherish. ❤️
-    </p>
+        <h2>
+            You Are Very Special To Me ❤️
+        </h2>
 
-    <h2>Forever & Always ❤️</h2>
+        <p>
+            Kummi, this little website is made
+            with love, only for you.
+        </p>
 
-</div> 
+        <p>
+            You are not just someone special...
+            you are my favorite person. ❤️
+        </p>
 
-<div id="endingMessage" class="ending-message hidden">
+    </section>
 
-    <div class="ending-heart">❤️</div>
 
-    <h2>Our Story Is Just Beginning ❤️</h2>
+    <!-- =========================
+         LOVE LETTER
+    ========================= -->
+    <section
+        id="letter"
+        class="hidden letter-section"
+    >
 
-    <p>
-        There are still so many beautiful memories waiting
-        for us to create together.
-    </p>
+        <h2>
+            A Little Letter For You 💌
+        </h2>
 
-    <p>
-        Whatever the future brings, I hope we always
-        keep choosing each other. ❤️
-    </p>
+        <p class="letter-subtitle">
+            Tap the letter to open it ❤️
+        </p>
 
-    <h3>Forever & Always ❤️</h3>
 
-    <p class="made-with-love">
-        Made With Love, Just For You ❤️
-    </p>
+        <div
+            id="envelope"
+            class="envelope"
+        >
 
-    <button id="replayBtn" class="replay-btn">
-        🔄 Replay Surprise
-    </button>
+            <div class="envelope-back"></div>
 
-</div>
+            <div class="letter-paper">
+
+                <h3>
+                    My Kummi ❤️
+                </h3>
+
+                <p>
+                    My dearest Mehrun Nisha,
+                </p>
+
+                <p>
+                    You are one of the most
+                    beautiful parts of my life.
+                    Every smile of yours makes
+                    my world a little brighter.
+                </p>
+
+                <p>
+                    I may not always have the
+                    perfect words, but my heart
+                    will always know one thing...
+                </p>
+
+                <h3>
+                    I Love You ❤️
+                </h3>
+
+                <p>
+                    Forever & Always,
+                    <br>
+                    Your Love ❤️
+                </p>
+
+            </div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="envelope-heart">
+                ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =================================
+     REASONS WHY I LOVE YOU
+================================= -->
+
+<section class="reasons-section">
+
+    <h2>💗 Reasons Why I Love You 💗</h2>
+
+    <div class="reasons-grid">
+
+        <div class="reason-card">
+            <h3>Your Smile ❤️</h3>
+            <p>Your smile makes my whole day better.</p>
+        </div>
+
+        <div class="reason-card">
+            <h3>Your Kindness 🌹</h3>
+            <p>Your kindness makes you even more special.</p>
+        </div>
+
+        <div class="reason-card">
+            <h3>Your Support 🤍</h3>
+            <p>You always make me feel supported and cared for.</p>
+        </div>
+
+        <div class="reason-card">
+            <h3>Your Presence ✨</h3>
+            <p>Just having you around makes everything beautiful.</p>
+        </div>
+
+        <div class="reason-card">
+            <h3>Simply... You ❤️</h3>
+            <p>I love you simply because you are you.</p>
+        </div>
+
+    </div>
 
 </section>
 
-<!-- Romantic Footer -->
 
-<footer class="romantic-footer">
+    <!-- =========================
+         MEMORIES
+    ========================= -->
+    <section
+        class="memories hidden"
+        id="memories"
+    >
 
-    <p>Made with ❤️ especially for you</p>
+        <h2>
+            Our Beautiful Memories ❤️
+        </h2>
 
-    <p class="footer-small">
-        Forever isn't long enough with you. ❤️
-    </p>
+        <p class="memory-intro">
+            Some moments that I will always
+            keep in my heart.
+        </p>
 
-</footer>
 
-<div id="imageModal" class="image-modal">
-    <span class="close-image" onclick="closeImage()">&times;</span>
-    <img id="zoomedImage" src="" alt="Zoomed Memory">
-</div>
+        <div class="memory-grid">
+
+
+            <!-- PHOTO 1 -->
+            <div class="memory-card">
+
+                <div class="photo-frame">
+
+                    <img
+                        src="photo1.jpg"
+                        alt="Our Memory"
+                        onclick="openImage(this.src, 1)"
+                    >
+
+                </div>
+
+                <h3>
+                    Beautiful Moment ❤️
+                </h3>
+
+                <p>
+                    A special memory that means
+                    a lot to me.
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+            <div class="memory-card">
+
+                <div class="photo-frame">
+
+                    <img
+                        src="photo2.jpg"
+                        alt="Our Memory"
+                        onclick="openImage(this.src, 2)"
+                    >
+
+                </div>
+
+                <h3>
+                    Special Day 💕
+                </h3>
+
+                <p>
+                    One of those moments I will
+                    always remember.
+                </p>
+
+            </div>
+
+
+            <!-- PHOTO 3 -->
+            <div class="memory-card">
+
+                <div class="photo-frame">
+
+                    <img
+                        src="photo3.jpg"
+                        alt="Our Memory"
+                        onclick="openImage(this.src, 3)"
+                    >
+
+                </div>
+
+                <h3>
+                    Best Memory 🌸
+                </h3>
+
+                <p>
+                    A beautiful moment captured
+                    forever.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         IMAGE MODAL
+    ========================= -->
+    <div
+        id="imageModal"
+        class="image-modal"
+    >
+
+        <span
+            class="close-image"
+            onclick="closeImage()"
+        >
+            &times;
+        </span>
+
+
+        <div class="image-content">
+
+            <img
+                id="zoomedImage"
+                src=""
+                alt="Memory"
+            >
+
+            <p id="memoryNumber"></p>
+
+            <div id="memoryText"></div>
+
+            <p class="zoom-hint">
+                👆 Double tap / double click
+                the photo to zoom
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FINAL SURPRISE
+    ========================= -->
+    <section
+        class="final-surprise hidden"
+        id="finalSurprise"
+    >
+
+        <h2>
+            One More Surprise ❤️
+        </h2>
+
+        <p>
+            I have one more little thing
+            to tell you...
+        </p>
+
+
+        <button
+            id="loveBtn"
+            class="love-btn"
+        >
+            Click Here ❤️
+        </button>
+
+
+        <div
+            id="loveMessage"
+            class="love-message hidden"
+        >
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <h3>
+                You Are My Favorite Person ❤️
+            </h3>
+
+            <p>
+                No matter where life takes us,
+                I hope we always keep making
+                beautiful memories together.
+            </p>
+
+            <p>
+                Thank you for being a beautiful
+                part of my life. ❤️
+            </p>
+
+            <h2>
+                Forever & Always ❤️
+            </h2>
+
+        </div>
+
+
+        <!-- =========================
+             ENDING
+        ========================= -->
+        <div
+            id="endingMessage"
+            class="ending-message hidden"
+        >
+
+            <div class="ending-heart">
+                ❤️
+            </div>
+
+            <h2>
+                Our Story Is Just Beginning ❤️
+            </h2>
+
+            <p>
+                There are still so many beautiful
+                memories waiting for us to create.
+            </p>
+
+            <p>
+                Whatever the future brings,
+                I hope we always keep choosing
+                each other. ❤️
+            </p>
+
+            <h3>
+                Forever & Always ❤️
+            </h3>
+
+            <p class="made-with-love">
+                Made With Love,
+                Just For You ❤️
+            </p>
+
+            <button
+                id="replayBtn"
+                class="replay-btn"
+            >
+                🔄 Replay Surprise
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+    <footer class="romantic-footer">
+
+        <p>
+            Made with ❤️ especially for Kummi
+        </p>
+
+        <p class="footer-small">
+            Forever isn't long enough with you. ❤️
+        </p>
+
+    </footer>
+
+</main>
+
 
 <script src="script.js"></script>
 
