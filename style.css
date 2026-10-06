@@ -11,48 +11,107 @@ html {
 body {
     min-height: 100vh;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     font-family: Arial, sans-serif;
 
-    background:
-        radial-gradient(
-            circle at top,
-            #ff9ab5,
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #ff416c,
-            #ff4b8b,
-            #8e2de2
-        );
+    background: linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3
+    );
 
     color: white;
 
     overflow-x: hidden;
 }
 
+/* Main Container */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+
+    text-align: center;
+
+    padding: 50px 30px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+
+button {
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: white;
+    color: #ff4f81;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform 0.25s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Hidden */
+
 .hidden {
     display: none !important;
 }
 
-button {
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+/* First Message */
+
+#message {
+    margin-top: 30px;
 }
 
+#message h2 {
+    margin-bottom: 10px;
+}
 
-/* =================================
-   FALLING GLOWING HEARTS
-================================= */
+/* Floating Hearts */
 
 #hearts-container {
     position: fixed;
-
     inset: 0;
 
     pointer-events: none;
-
     overflow: hidden;
 
     z-index: 1;
@@ -60,1237 +119,357 @@ button {
 
 .heart {
     position: absolute;
+    top: -50px;
 
-    top: -60px;
+    will-change: transform, opacity;
 
-    color: #ffb6d9;
-
-    text-shadow:
-        0 0 5px white,
-        0 0 12px #ff69b4,
-        0 0 25px #ff1493;
-
-    animation:
-        fallingHeart linear forwards,
-        heartGlow 1.5s ease-in-out infinite alternate;
+    animation: fallingHeart 5s linear forwards;
 }
 
 @keyframes fallingHeart {
 
-    from {
-        transform:
-            translateY(-50px)
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    15% {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
         opacity: 1;
     }
 
-    to {
-        transform:
-            translateY(110vh)
-            rotate(360deg);
-
+    100% {
+        transform: translate3d(0, 110vh, 0) rotate(360deg);
         opacity: 0;
     }
-}
-
-@keyframes heartGlow {
-
-    from {
-        filter: brightness(0.8);
-    }
-
-    to {
-        filter: brightness(1.6);
-    }
-}
-
-
-/* =================================
-   PASSWORD
-================================= */
-
-.password-screen {
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    padding: 25px;
-
-    position: relative;
-
-    z-index: 5;
-}
-
-.lock-heart {
-    font-size: 90px;
-
-    animation: heartbeat 1.2s infinite;
-
-    filter:
-        drop-shadow(0 0 10px white)
-        drop-shadow(0 0 25px #ff1493);
-}
-
-.password-screen h1 {
-    margin-top: 20px;
-
-    font-size: 40px;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px #ff69b4;
-}
-
-.password-screen > p {
-    margin-top: 12px;
-
-    font-size: 18px;
-}
-
-.password-box {
-    margin-top: 30px;
-
-    padding: 25px;
-
-    background:
-        rgba(255,255,255,0.14);
-
-    border:
-        1px solid rgba(255,255,255,0.4);
-
-    border-radius: 25px;
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 10px 40px rgba(0,0,0,0.25);
-}
-
-#passwordInput {
-    width: 250px;
-
-    padding: 14px 18px;
-
-    border:
-        2px solid rgba(255,255,255,0.6);
-
-    border-radius: 30px;
-
-    outline: none;
-
-    text-align: center;
-
-    font-size: 16px;
-
-    background: rgba(255,255,255,0.9);
-
-    color: #ff3f79;
-}
-
-#unlockBtn {
-    display: block;
-
-    margin: 18px auto 0;
-
-    padding: 14px 25px;
-
-    border-radius: 30px;
-
-    background: white;
-
-    color: #ff3f79;
-
-    transition: 0.3s;
-}
-
-#unlockBtn:hover {
-    transform: scale(1.08);
-}
-
-#passwordError {
-    min-height: 20px;
-
-    margin-top: 12px;
-
-    color: #ffd6e5;
-}
-
-
-/* =================================
-   LOVE HEART ANIMATION
-================================= */
-
-.love-animation-section {
-    min-height: 620px;
-
-    padding:
-        60px
-        15px
-        30px;
-
-    text-align: center;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.love-animation-section h1 {
-    font-size: 38px;
-
-    color: #ffd0e7;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 20px #ff69b4,
-        0 0 40px #ff1493;
-}
-
-.love-animation-subtitle {
-    margin-top: 12px;
-
-    opacity: 0.9;
-}
-
-
-/* Main text heart */
-
-#loveHeart {
-    position: relative;
-
-    width: 390px;
-
-    height: 350px;
-
-    margin-top: 35px;
-
-    overflow: visible;
-}
-
-
-/* Individual I love you */
-
-.love-word {
-    position: absolute;
-
-    color: #ffb3d9;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    white-space: nowrap;
-
-    letter-spacing: 1px;
-
-    text-shadow:
-        0 0 5px #fff,
-        0 0 10px #ff69b4,
-        0 0 18px #ff1493;
-
-    animation:
-        loveWordGlow 1.8s
-        ease-in-out
-        infinite alternate;
-}
-
-@keyframes loveWordGlow {
-
-    from {
-        opacity: 0.55;
-
-        text-shadow:
-            0 0 4px #ff69b4;
-    }
-
-    to {
-        opacity: 1;
-
-        text-shadow:
-            0 0 5px white,
-            0 0 12px #ff69b4,
-            0 0 25px #ff1493;
-    }
-}
-
-.heart-caption {
-    margin-top: 5px;
-
-    font-size: 20px;
-
-    color: #ffe1ef;
-
-    text-shadow:
-        0 0 10px #ff69b4;
-}
-
-
-/* =================================
-   MAIN CONTAINER
-================================= */
-
-#mainContent {
-    position: relative;
-
-    z-index: 2;
-}
-
-.container {
-    width: 90%;
-
-    max-width: 650px;
-
-    margin:
-        30px auto
-        30px;
-
-    text-align: center;
-
-    padding: 50px 30px;
-
-    background:
-        rgba(255,255,255,0.14);
-
-    border:
-        1px solid rgba(255,255,255,0.35);
-
-    border-radius: 30px;
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,0.25);
-}
-
-.container h1 {
-    font-size: 42px;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px #ff69b4;
-}
-
-.subtitle {
-    font-size: 18px;
-
-    margin:
-        20px auto
-        30px;
-
-    line-height: 1.6;
-}
-
-.container button {
-    padding: 15px 28px;
-
-    border-radius: 30px;
-
-    background: white;
-
-    color: #ff3975;
-
-    font-size: 16px;
-
-    transition: 0.3s;
-}
-
-.container button:hover {
-    transform: scale(1.07);
-}
-
-
-/* =================================
-   MESSAGE
-================================= */
-
-.section-card {
-    width: 90%;
-
-    max-width: 700px;
-
-    margin: 40px auto;
-
-    padding: 35px 25px;
-
-    text-align: center;
-
-    border-radius: 25px;
-
-    background:
-        rgba(255,255,255,0.14);
-
-    backdrop-filter: blur(10px);
-
-    animation:
-        sectionAppear 1s ease;
-}
-
-.section-heart {
-    font-size: 60px;
-
-    animation:
-        heartbeat 1.2s infinite;
-}
-
-.section-card h2 {
-    margin: 15px 0;
-}
-
-.section-card p {
-    line-height: 1.7;
-
-    margin-top: 10px;
-}
-
-/* =================================
-   REASONS WHY I LOVE YOU
-================================= */
-
-.reasons-section {
-    width: 90%;
-    max-width: 1000px;
-
-    margin: 60px auto;
-
-    padding: 45px 25px;
-
-    text-align: center;
-
-    background: rgba(255,255,255,0.14);
-
-    border-radius: 30px;
-
-    backdrop-filter: blur(10px);
-
-    animation: sectionAppear 1s ease;
-}
-
-.reasons-section h2 {
-    font-size: 35px;
-
-    margin-bottom: 35px;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px #ff69b4;
-}
-
-.reasons-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 20px;
-}
-
-.reason-card {
-    padding: 25px 20px;
-
-    border-radius: 22px;
-
-    background: rgba(255,255,255,0.16);
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.15);
-
-    transition: 0.4s;
-}
-
-.reason-card:hover {
-    transform: translateY(-8px) scale(1.02);
-}
-
-.reason-card h3 {
-    font-size: 24px;
-
-    margin-bottom: 12px;
-}
-
-.reason-card p {
-    line-height: 1.6;
-
-    font-size: 16px;
-}
-
-
-/* Mobile */
-
-@media (max-width: 700px) {
-
-    .reasons-section {
-        width: 92%;
-
-        padding: 35px 18px;
-    }
-
-    .reasons-section h2 {
-        font-size: 27px;
-    }
-
-    .reasons-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .reason-card h3 {
-        font-size: 21px;
-    }
 
 }
 
-/* =================================
-   LOVE LETTER - FIXED & SCROLLABLE
-================================= */
-
-.letter-section {
-    width: 90%;
-    max-width: 750px;
-    margin: 50px auto;
-    text-align: center;
-}
-
-.letter-section h2 {
-    font-size: 32px;
-}
-
-.letter-subtitle {
-    margin-top: 10px;
-    opacity: 0.9;
-}
-
-
-/* ================================
-   ENVELOPE
-================================ */
-
-.envelope {
-    width: 300px;
-    height: 200px;
-    margin: 45px auto;
-
-    position: relative;
-    cursor: pointer;
-    perspective: 1000px;
-
-    filter:
-        drop-shadow(
-            0 10px 20px
-            rgba(0,0,0,0.3)
-        );
-
-    /* Important */
-    overflow: visible;
-}
-
-
-/* Envelope Back */
-
-.envelope-back {
-    position: absolute;
-    inset: 0;
-
-    background: #ff5f91;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 0 20px
-        rgba(255,105,180,0.5);
-}
-
-
-/* Envelope Flap */
-
-.envelope-flap {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 0;
-
-    border-left:
-        150px solid transparent;
-
-    border-right:
-        150px solid transparent;
-
-    border-top:
-        110px solid #ff86aa;
-
-    transform-origin: top;
-
-    transition:
-        transform 0.9s ease;
-
-    z-index: 4;
-}
-
-
-/* ================================
-   LETTER PAPER
-================================ */
-
-.letter-paper {
-    position: absolute;
-
-    left: 15px;
-    right: 15px;
-
-    bottom: 10px;
-
-    /* Letter ki visible height */
-    height: 230px;
-
-    /* Bahut lamba message bhi handle hoga */
-    max-height: 50vh;
-
-    background: #fff8fb;
-
-    color: #d83269;
-
-    border-radius: 8px;
-
-    padding: 22px;
-
-    /* MOST IMPORTANT */
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    transform: translateY(0);
-
-    transition:
-        transform 1s ease;
-
-    /* Open hone ke baad flap ke upar rahega */
-    z-index: 2;
-
-    text-align: left;
-
-    line-height: 1.7;
-
-    box-sizing: border-box;
-
-    /* Smooth scrolling */
-    scroll-behavior: smooth;
-
-    /* Scrollbar */
-    scrollbar-width: thin;
-}
-
-
-/* Letter Heading */
-
-.letter-paper h3 {
-    margin-bottom: 15px;
-
-    text-align: center;
-
-    font-size: 22px;
-}
-
-
-/* Letter Paragraph */
-
-.letter-paper p {
-    font-size: 15px;
-
-    line-height: 1.7;
-
-    margin-bottom: 15px;
-}
-
-
-/* Last paragraph */
-
-.letter-paper p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* ================================
-   ENVELOPE HEART
-================================ */
-
-.envelope-heart {
-    position: absolute;
-
-    top: 72px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    font-size: 45px;
-
-    z-index: 6;
-
-    filter:
-        drop-shadow(0 0 8px white)
-        drop-shadow(0 0 18px #ff1493);
-
-    transition: 0.5s;
-}
-
-
-/* ================================
-   OPEN ENVELOPE
-================================ */
-
-.envelope.open .envelope-flap {
-    transform:
-        rotateX(180deg);
-}
-
-
-/* Letter upar niklega */
-
-.envelope.open .letter-paper {
-    transform:
-        translateY(-125px);
-
-    /* Flap ke upar */
-    z-index: 5;
-}
-
-
-/* Heart hide */
-
-.envelope.open .envelope-heart {
-    opacity: 0;
-
-    transform:
-        translateX(-50%)
-        scale(0.5);
-}
-
-
-/* ================================
-   LETTER SCROLLBAR
-================================ */
-
-.letter-paper::-webkit-scrollbar {
-    width: 7px;
-}
-
-.letter-paper::-webkit-scrollbar-track {
-    background: rgba(216, 50, 105, 0.1);
-
-    border-radius: 10px;
-}
-
-.letter-paper::-webkit-scrollbar-thumb {
-    background: #d83269;
-
-    border-radius: 10px;
-}
-
-
-/* ================================
-   MOBILE LETTER
-================================ */
-
-@media (max-width: 700px) {
-
-    .letter-section {
-        width: 94%;
-        margin: 40px auto;
-    }
-
-    .letter-section h2 {
-        font-size: 28px;
-    }
-
-    .envelope {
-        width: 280px;
-        height: 185px;
-    }
-
-    .envelope-flap {
-        border-left-width: 140px;
-        border-right-width: 140px;
-        border-top-width: 100px;
-    }
-
-    .letter-paper {
-        left: 12px;
-        right: 12px;
-
-        height: 220px;
-
-        max-height: 55vh;
-
-        padding: 18px;
-
-        font-size: 14px;
-
-        line-height: 1.7;
-    }
-
-    .letter-paper h3 {
-        font-size: 20px;
-    }
-
-    .letter-paper p {
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .envelope.open .letter-paper {
-        transform:
-            translateY(-120px);
-    }
-}
-
-
-/* =================================
-   MEMORIES
-================================= */
+/* Memories */
 
 .memories {
-    width: 92%;
+    width: 100%;
+    max-width: 1000px;
 
-    max-width: 1050px;
-
-    margin: 70px auto;
+    margin: 50px auto;
 
     padding: 40px 25px;
 
     text-align: center;
 
-    background:
-        rgba(255,255,255,0.13);
+    background: rgba(255, 255, 255, 0.12);
 
-    border-radius: 30px;
+    border-radius: 25px;
 
     backdrop-filter: blur(10px);
-
-    animation:
-        sectionAppear 1s ease;
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .memories h2 {
     font-size: 35px;
-
     margin-bottom: 10px;
 }
 
 .memory-intro {
     margin-bottom: 30px;
+    opacity: 0.9;
 }
 
 .memory-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
 }
 
 .memory-card {
+    background: rgba(255, 255, 255, 0.15);
+
     padding: 15px;
-
-    border-radius: 22px;
-
-    background:
-        rgba(255,255,255,0.14);
-
-    transition: 0.4s;
-
-    box-shadow:
-        0 8px 25px
-        rgba(0,0,0,0.15);
-}
-
-.memory-card:hover {
-    transform:
-        translateY(-10px);
-}
-
-
-/* Animated Photo Border */
-
-.photo-frame {
-    padding: 5px;
 
     border-radius: 20px;
 
-    background:
-        linear-gradient(
-            45deg,
-            #fff,
-            #ff69b4,
-            #fff,
-            #ff1493,
-            #fff
-        );
-
-    background-size:
-        300% 300%;
-
-    animation:
-        borderMove 4s linear infinite;
-
-    box-shadow:
-        0 0 15px
-        rgba(255,105,180,0.6);
+    transition: transform 0.25s ease;
 }
 
-@keyframes borderMove {
-
-    0% {
-        background-position:
-            0% 50%;
-    }
-
-    50% {
-        background-position:
-            100% 50%;
-    }
-
-    100% {
-        background-position:
-            0% 50%;
-    }
+.memory-card:hover {
+    transform: translateY(-8px);
 }
 
 .memory-card img {
     width: 100%;
-
-    height: 260px;
+    height: 250px;
 
     object-fit: cover;
 
-    display: block;
-
     border-radius: 15px;
+
+    display: block;
 
     cursor: pointer;
 
-    transition: 0.3s;
-}
-
-.memory-card img:hover {
-    filter: brightness(1.08);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .memory-card h3 {
     margin-top: 15px;
-
     margin-bottom: 8px;
 }
 
 .memory-card p {
     font-size: 14px;
-
-    opacity: 0.9;
-
-    line-height: 1.5;
+    opacity: 0.85;
 }
 
-
-/* =================================
-   IMAGE MODAL
-================================= */
+/* Image Zoom */
 
 .image-modal {
-    position: fixed;
-
-    inset: 0;
-
     display: none;
 
-    justify-content: center;
+    position: fixed;
+    inset: 0;
 
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.95);
+
+    z-index: 99999;
+
+    justify-content: center;
     align-items: center;
 
     padding: 20px;
-
-    background:
-        rgba(10,0,10,0.94);
-
-    z-index: 99999;
 }
 
-.image-content {
-    max-width: 900px;
+.image-modal img {
+    max-width: 95%;
+    max-height: 90vh;
 
-    width: 95%;
-
-    text-align: center;
-}
-
-.image-content img {
-    max-width: 90%;
-
-    max-height: 65vh;
+    width: auto;
+    height: auto;
 
     object-fit: contain;
 
-    border-radius: 15px;
-
-    border: 4px solid transparent;
-
-    box-shadow:
-        0 0 10px white,
-        0 0 30px #ff69b4,
-        0 0 60px #ff1493;
-
-    transition:
-        transform 0.4s ease;
-}
-
-.image-content img.zoomed {
-    transform:
-        scale(1.6);
+    border-radius: 12px;
 }
 
 .close-image {
     position: absolute;
 
     top: 15px;
-
     right: 25px;
-
-    font-size: 50px;
-
-    cursor: pointer;
 
     color: white;
 
-    text-shadow:
-        0 0 10px #ff69b4;
-}
-
-#memoryNumber {
-    margin-top: 15px;
-
-    font-size: 20px;
-
+    font-size: 50px;
     font-weight: bold;
+
+    cursor: pointer;
 }
 
-#memoryText {
-    margin: 12px auto;
+/* Personal Letter */
 
-    max-width: 650px;
+.letter {
+    width: 100%;
+    max-width: 800px;
 
-    line-height: 1.7;
+    margin: 40px auto;
 
-    font-size: 16px;
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.zoom-hint {
-    font-size: 13px;
-
-    opacity: 0.7;
-
-    margin-top: 15px;
+.letter h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
 }
 
+.letter-box {
+    background: rgba(255, 255, 255, 0.12);
 
-/* =================================
-   FINAL SURPRISE
-================================= */
+    padding: 30px;
+
+    border-radius: 20px;
+
+    line-height: 1.8;
+}
+
+.letter-box p {
+    margin-bottom: 18px;
+}
+
+.signature {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Final Surprise */
 
 .final-surprise {
-    width: 90%;
+    width: 100%;
+    max-width: 700px;
 
-    max-width: 750px;
-
-    margin: 70px auto;
+    margin: 50px auto;
 
     padding: 45px 25px;
 
     text-align: center;
 
-    border-radius: 30px;
+    border-radius: 25px;
 
-    background:
-        rgba(255,255,255,0.14);
-
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .final-surprise h2 {
     font-size: 32px;
-
     margin-bottom: 15px;
 }
 
 .love-btn {
     margin-top: 25px;
 
-    padding: 15px 28px;
+    padding: 14px 25px;
 
+    border: none;
     border-radius: 30px;
 
-    background: #ff3f79;
-
+    background: #ff4f81;
     color: white;
 
-    font-size: 17px;
+    font-size: 16px;
+    font-weight: bold;
 
-    box-shadow:
-        0 0 10px #ff69b4,
-        0 0 25px
-        rgba(255,20,147,0.6);
+    cursor: pointer;
 
-    transition: 0.3s;
+    transition: transform 0.25s ease;
 }
 
 .love-btn:hover {
-    transform:
-        scale(1.1);
+    transform: scale(1.08);
 }
-
-
-/* Love Message */
 
 .love-message {
-    margin-top: 35px;
+    margin-top: 30px;
 
-    padding: 30px 20px;
+    padding: 25px;
 
-    border-radius: 25px;
+    border-radius: 20px;
 
-    background:
-        rgba(255,255,255,0.13);
-
-    animation:
-        loveAppear 1s ease;
-}
-
-.big-heart,
-.ending-heart {
-    font-size: 80px;
-
-    animation:
-        heartbeat 1.2s infinite;
-
-    filter:
-        drop-shadow(0 0 10px white)
-        drop-shadow(0 0 30px #ff1493);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .love-message h3 {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-.love-message p {
-    line-height: 1.7;
+.big-heart {
+    font-size: 80px;
 
-    margin-top: 15px;
+    margin-bottom: 20px;
+
+    animation: heartbeat 1.2s infinite;
+
+    will-change: transform;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    50%,
+    100% {
+        transform: scale(1);
+    }
+
+    25%,
+    75% {
+        transform: scale(1.12);
+    }
+
 }
 
 .love-message h2 {
     margin-top: 25px;
+    font-size: 28px;
 }
 
-
-/* =================================
-   BURST HEARTS
-================================= */
+/* Heart Burst */
 
 .burst-heart {
     position: fixed;
 
     pointer-events: none;
 
-    z-index: 999999;
+    z-index: 99999;
 
-    font-size: 35px;
+    font-size: 25px;
 
-    animation:
-        burstHeart 2s ease-out forwards;
+    will-change: transform, opacity;
 
-    filter:
-        drop-shadow(0 0 8px white)
-        drop-shadow(0 0 20px #ff1493);
+    animation: burstHeart 1.5s ease-out forwards;
 }
 
 @keyframes burstHeart {
 
     0% {
-        transform:
-            translate(0,0)
-            scale(0.2)
-            rotate(0deg);
-
-        opacity: 1;
-    }
-
-    60% {
+        transform: translate3d(0, 0, 0) scale(0.5);
         opacity: 1;
     }
 
     100% {
-        transform:
-            translate(var(--x),var(--y))
-            scale(1.8)
-            rotate(360deg);
-
+        transform: translate3d(var(--x), var(--y), 0) scale(1.3);
         opacity: 0;
     }
+
 }
 
-
-/* =================================
-   ENDING
-================================= */
+/* Final Ending */
 
 .ending-message {
-    margin-top: 45px;
+    margin-top: 40px;
 
     padding: 40px 25px;
 
+    text-align: center;
+
     border-radius: 25px;
 
-    background:
-        rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
 
-    animation:
-        endingAppear 1.2s ease;
+    animation: endingAppear 0.7s ease;
+
+    contain: content;
+}
+
+.ending-heart {
+    font-size: 70px;
+
+    animation: heartbeat 1.2s infinite;
+
+    will-change: transform;
 }
 
 .ending-message h2 {
     margin-top: 20px;
-
     font-size: 30px;
 }
 
 .ending-message p {
     margin-top: 15px;
-
     line-height: 1.7;
 }
 
 .ending-message h3 {
     margin-top: 25px;
-
     font-size: 22px;
 }
 
 .made-with-love {
+    font-size: 14px;
     opacity: 0.8;
 }
 
@@ -1299,270 +478,284 @@ button {
 
     padding: 13px 25px;
 
+    border: none;
     border-radius: 30px;
 
-    background: #ff3f79;
-
-    color: white;
+    cursor: pointer;
 
     font-size: 16px;
+    font-weight: bold;
 
-    transition: 0.3s;
+    background: #ff4f81;
+    color: white;
+
+    transition: transform 0.25s ease;
 }
 
 .replay-btn:hover {
-    transform:
-        scale(1.08);
-}
-
-
-/* =================================
-   MUSIC
-================================= */
-
-.music-btn {
-    position: fixed;
-
-    right: 20px;
-
-    bottom: 20px;
-
-    z-index: 9999;
-
-    padding: 12px 18px;
-
-    border-radius: 30px;
-
-    background: #ff3f79;
-
-    color: white;
-
-    box-shadow:
-        0 5px 20px
-        rgba(0,0,0,0.3);
-
-    transition: 0.3s;
-}
-
-.music-btn:hover {
-    transform:
-        scale(1.08);
-}
-
-
-/* =================================
-   FOOTER
-================================= */
-
-.romantic-footer {
-    width: 100%;
-
-    margin-top: 60px;
-
-    padding: 30px 15px;
-
-    text-align: center;
-
-    background:
-        rgba(0,0,0,0.12);
-}
-
-.romantic-footer p {
-    margin: 8px;
-}
-
-.footer-small {
-    font-size: 13px;
-
-    opacity: 0.75;
-}
-
-
-/* =================================
-   ANIMATIONS
-================================= */
-
-@keyframes heartbeat {
-
-    0%,100% {
-        transform:
-            scale(1);
-    }
-
-    25% {
-        transform:
-            scale(1.18);
-    }
-
-    50% {
-        transform:
-            scale(1);
-    }
-
-    75% {
-        transform:
-            scale(1.15);
-    }
-}
-
-@keyframes sectionAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(35px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes loveAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            scale(0.7);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1);
-    }
+    transform: scale(1.08);
 }
 
 @keyframes endingAppear {
 
     from {
         opacity: 0;
-
-        transform:
-            translateY(40px);
+        transform: translate3d(0, 20px, 0);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translate3d(0, 0, 0);
     }
+
 }
 
+/* Music Button */
 
-/* =================================
-   MOBILE
-================================= */
+.music-btn {
+    position: fixed;
 
-@media (max-width: 700px) {
+    bottom: 20px;
+    right: 20px;
 
-    .password-screen h1 {
+    z-index: 9999;
+
+    margin: 0;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #ff4f81;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.25s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Footer */
+
+.romantic-footer {
+    width: 100%;
+
+    margin-top: 50px;
+
+    padding: 30px 15px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    position: relative;
+    z-index: 2;
+}
+
+.romantic-footer p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.romantic-footer .footer-small {
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+/* =========================
+   Mobile Optimization
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding-top: 15px;
+    }
+
+    .container {
+        width: 94%;
+
+        padding: 35px 15px;
+
+        /* Heavy blur removed on mobile */
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+
+        background: rgba(255, 255, 255, 0.14);
+    }
+
+    h1 {
         font-size: 30px;
     }
 
-    .container h1 {
-        font-size: 32px;
+    .subtitle {
+        font-size: 16px;
     }
 
-
-    /* Love Heart Mobile */
-
-    .love-animation-section {
-        min-height: 560px;
-
-        padding-top: 40px;
-    }
-
-    .love-animation-section h1 {
-        font-size: 28px;
-    }
-
-    .love-animation-subtitle {
-        font-size: 14px;
-
-        max-width: 320px;
-    }
-
-    #loveHeart {
-        width: 320px;
-
-        height: 290px;
-
-        transform:
-            scale(0.88);
-    }
-
-    .love-word {
-        font-size: 10px;
-
-        letter-spacing: 0.5px;
-    }
-
-
-    /* Memories */
+    /* Fewer visual calculations */
 
     .memory-grid {
         grid-template-columns: 1fr;
     }
 
+    .memories {
+        width: 100%;
+        padding: 30px 15px;
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .memory-card {
+        transform: none !important;
+    }
+
     .memory-card img {
+        width: 100%;
         height: auto;
+        max-height: 350px;
 
-        max-height: 400px;
+        /* Better image rendering */
+        content-visibility: auto;
     }
 
+    .letter {
+        width: 100%;
+        padding: 30px 15px;
 
-    /* Envelope */
-
-    .envelope {
-        width: 280px;
-
-        height: 185px;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
-    .envelope-flap {
-        border-left-width: 140px;
-
-        border-right-width: 140px;
-
-        border-top-width: 100px;
+    .letter-box {
+        padding: 20px 15px;
+        font-size: 15px;
     }
 
-    .letter-paper {
-        height: 160px;
+    .final-surprise {
+        width: 100%;
+        padding: 35px 15px;
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
-
-    /* Image */
-
-    .image-content img {
-        max-width: 95%;
-
-        max-height: 55vh;
+    .final-surprise h2 {
+        font-size: 26px;
     }
 
-    .image-content img.zoomed {
-        transform:
-            scale(1.35);
+    .love-message {
+        padding: 20px 15px;
     }
 
-
-    .big-heart,
-    .ending-heart {
+    .big-heart {
         font-size: 65px;
+        animation-duration: 1.5s;
     }
 
+    .love-message h3 {
+        font-size: 22px;
+    }
+
+    .ending-message {
+        width: 100%;
+
+        padding: 30px 15px;
+
+        margin: 30px auto;
+    }
+
+    .ending-message h2 {
+        font-size: 25px;
+    }
+
+    .ending-message h3 {
+        font-size: 20px;
+    }
+
+    .ending-heart {
+        font-size: 60px;
+        animation-duration: 1.5s;
+    }
+
+    .replay-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    /* Smaller music button */
 
     .music-btn {
-        right: 12px;
+        bottom: 15px;
+        right: 15px;
 
-        bottom: 12px;
+        padding: 10px 15px;
+
+        font-size: 13px;
     }
+
+    /* Reduce floating heart size */
+
+    .heart {
+        font-size: 18px !important;
+    }
+
+    /* Reduce heart burst size */
+
+    .burst-heart {
+        font-size: 20px;
+    }
+
+}
+
+/* Very small phones */
+
+@media (max-width: 380px) {
+
+    .container {
+        width: 96%;
+        padding: 30px 12px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    button {
+        padding: 13px 20px;
+        font-size: 14px;
+    }
+
+    .music-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+}
+
+/* Respect reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
 }
